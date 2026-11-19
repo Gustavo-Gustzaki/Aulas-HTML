@@ -21,7 +21,7 @@ tituloSite.textContent = "The Walking Date 🧟";
 const figcaption = document.querySelector('figcaption');
 figcaption.innerHTML = '- <strong>Zezinho da Foice</strong>, Sobrevivente Nível 5';
 
-const textoBoasvindas = document.querySelector('#boas-vindas p').textContent;
+const textoBoasvindas = document.querySelector('#boas-vindas figcaption')?.textContent;
 console.log(textoBoasvindas);
 
 const aside = document.querySelector('aside');
@@ -49,8 +49,24 @@ const barraAlerta = document.querySelector('#barra-alerta');
 barraAlerta.appendChild(aviso)
 
 const novoBeneficio = document.createElement('li');
-novoBeneficio.textContent = 'Seguro contra perda de menbros durante o primeiro encontro'
+novoBeneficio.textContent = 'Seguro contra perda de menbros durante o primeiro encontro';
 
-const beneficios = document.querySelector('#beneficios')
-beneficios.appendChild(novoBeneficio)
+const beneficios = document.querySelector('#beneficios');
+beneficios.appendChild(novoBeneficio);
 
+const fecharAlerta = document.querySelector('#fechar-alerta');
+fecharAlerta.addEventListener('click', () => {
+    barraAlerta.remove();
+});
+
+const htmlRoot = document.documentElement;
+
+btnTema.addEventListener('click', () => {
+    if (htmlRoot.getAttribute('data-theme') === 'light') {
+        htmlRoot.setAttribute('data-theme', 'dark');
+        btnTema.textContent = 'Modo Sobrevivência ☀️';
+    } else {
+        htmlRoot.setAttribute('data-theme', 'light');
+        btnTema.textContent = 'Modo Sombrio 🌕';
+    }
+});

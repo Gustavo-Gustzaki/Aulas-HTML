@@ -24,7 +24,7 @@
     background-color: var(--cor-botao);
 }
 .botao-match:hover{
-    --cor-botao: var(var(--cor-sangue));
+    --cor-botao: var(--cor-sangue);
 }
 body{
     margin: 0%;
